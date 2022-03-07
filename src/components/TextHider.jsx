@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Card, CardMedia, Input, TextField, Button } from "@mui/material";
+import { Grid, Card, CardMedia, Input, Box, TextField, Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { saveAs } from "file-saver";
 
@@ -8,7 +8,7 @@ import LoadingGif from './gifs/loading.webp'
 
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8000/api/v1/messages"
+const BASE_URL = "https://excoccur.pythonanywhere.com/api/v1/messages"
 
 const TextHider = () => {
   const [containerImage, setContainerImage] = useState(null);
@@ -50,18 +50,17 @@ const TextHider = () => {
 
       console.log(response.data)
 
-      setHiddenInfoContainerImage("http://localhost:8000"+response.data.body.containerImage)
+      setHiddenInfoContainerImage("https://excoccur.pythonanywhere.com"+response.data.body.containerImage)
 
     }catch(error){
       console.log(error)
     }
-    
   }
 
   return (
-    <div style={{ marginTop: 10 }}>
+    <Box display="flex">
     
-          <Grid container direction="row" justifyContent="flex-start">
+          <Grid container spacing={7} direction="row" justifyContent="center">
             <Grid item>
               <Card sx={{ maxWidth: 250}}>
                 <CardMedia
@@ -77,7 +76,7 @@ const TextHider = () => {
               </Card>
             </Grid>
             <Grid item>
-              <Card sx={{ maxWidth: 250, marginLeft: 8 }}>
+              <Card sx={{ maxWidth: 250, marginLeft: 0 }}>
                 <TextField
                   id="outlined-multiline-static"
                   //   label="Put Text Here"
@@ -94,7 +93,7 @@ const TextHider = () => {
               </Card>
             </Grid>
             <Grid item>
-              <Card sx={{ maxWidth: 250, marginLeft: 8 }}>
+              <Card sx={{ maxWidth: 250, marginLeft: 0 }}>
                 <CardMedia
                   component="img"
                   height="100%"
@@ -118,9 +117,10 @@ const TextHider = () => {
             </Grid>
           </Grid>
        
-    </div>
+    </Box>
   );
 };
+
 
 
 export default TextHider;

@@ -15,7 +15,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8000/api/v1/messages";
+const BASE_URL = "https://excoccur.pythonanywhere.com/api/v1/messages";
 
 const ExecHider = () => {
   const [containerImage, setContainerImage] = useState(null);
@@ -58,7 +58,7 @@ const ExecHider = () => {
       console.log(response.data);
 
       setHiddenInfoContainerImage(
-        "http://localhost:8000" + response.data.body.containerImage
+        "https://excoccur.pythonanywhere.com" + response.data.body.containerImage
       );
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ const ExecHider = () => {
 
   return (
     <Box>
-      <Grid container direction="row" justifyContent="flex-start">
+      <Grid spacing = {7} container direction="row" justifyContent="center">
         <Grid item>
           <Card sx={{ maxWidth: 250 }}>
             <CardMedia
@@ -93,7 +93,7 @@ const ExecHider = () => {
           <Card
             sx={{
               maxWidth: 250,
-              marginLeft: 8,
+              marginLeft: 0,
             }}
           >
             <CardMedia
@@ -114,7 +114,7 @@ const ExecHider = () => {
           </Card>
         </Grid>
         <Grid item>
-          <Card sx={{ maxWidth: 250, marginLeft: 8 }}>
+          <Card sx={{ maxWidth: 250, marginLeft: 0 }}>
             <CardMedia
               component="img"
               height="100%"

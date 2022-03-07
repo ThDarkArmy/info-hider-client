@@ -7,7 +7,7 @@ import LoadingGif from './gifs/loading.webp'
 
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8000/api/v1/messages"
+const BASE_URL = "https://excoccur.pythonanywhere.com/api/v1/messages"
 
 
 const ImageHider = () => {
@@ -47,7 +47,7 @@ const ImageHider = () => {
 
       
       if(response.data.success){
-        setHiddenInfoContainerImage("http://localhost:8000"+response.data.body.containerImage)
+        setHiddenInfoContainerImage("https://excoccur.pythonanywhere.com"+response.data.body.containerImage)
       }else{
         throw "Error occured"
       }
@@ -61,7 +61,7 @@ const ImageHider = () => {
   return (
     <Box display="flex">
     
-          <Grid container direction="row" justifyContent="flex-start" spacing={10}>
+          <Grid container direction="row" justifyContent="center" spacing={7}>
             <Grid item>
               <Card sx={{ maxWidth: 250 }}>
                 <CardMedia

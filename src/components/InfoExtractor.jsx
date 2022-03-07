@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 
-const BASE_URL = "http://localhost:8000/api/v1";
+const BASE_URL = "https://excoccur.pythonanywhere.com/api/v1";
 
 const InfoExtractor = () => {
   const [infoContainerImage, setInfoContainerImage] = useState(null);
@@ -50,10 +50,10 @@ const InfoExtractor = () => {
           setTextInfo(response.data.body.textInfo);
         } else if (response.data.type === "IMAGE") {
           setIsImage(true);
-          setImageInfo("http://localhost:8000" + response.data.body.imagePath);
+          setImageInfo("https://excoccur.pythonanywhere.com" + response.data.body.imagePath);
         } else if (response.data.type === "EXEC") {
           setIsExec(true);
-          setExecInfo("http://localhost:8000" + response.data.body.execPath);
+          setExecInfo("https://excoccur.pythonanywhere.com" + response.data.body.execPath);
         }
       } else {
         throw "Error occured";
